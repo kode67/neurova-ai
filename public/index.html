@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b12" />
+  <title>NEUROVA — AI workspace</title>
+  <meta name="description" content="NEUROVA — пространство AI-инструментов для работы, учёбы и творчества." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#090b12;--panel:#111521;--panel2:#151b2a;--line:rgba(255,255,255,.09);--muted:#929bad;--text:#f5f7fb;--violet:#8b70ff;--cyan:#56d7e8;--green:#6be0ad}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 72% -15%,rgba(105,76,226,.22),transparent 38%),radial-gradient(ellipse at 0% 45%,rgba(40,174,192,.08),transparent 35%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
+    button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+    header{height:78px;border-bottom:1px solid var(--line);display:flex;align-items:center;position:sticky;top:0;background:rgba(9,11,18,.82);backdrop-filter:blur(18px);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-family:Manrope;font-weight:800;letter-spacing:.12em;font-size:15px}.logo{width:32px;height:32px;border-radius:11px;background:linear-gradient(135deg,#a38cff,#5b4bd9 60%,#43cbd8);display:grid;place-items:center;box-shadow:0 5px 24px #765cff55}.logo svg{width:19px}.links{display:flex;gap:28px;color:#aab2c2;font-size:13px}.links a{color:inherit;text-decoration:none}.links a:hover{color:white}.navright{display:flex;align-items:center;gap:12px}.status{font-size:11px;color:#9ee6c4;border:1px solid #6be0ad44;background:#6be0ad10;padding:7px 10px;border-radius:99px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:700;font-size:13px;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.primary{background:linear-gradient(120deg,#9b83ff,#6d5ce8);color:white;box-shadow:0 8px 28px #765cff3b}.ghost{background:#ffffff0b;color:#e9ecf5;border:1px solid var(--line)}
+    .hero{padding:82px 0 52px;text-align:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #9b83ff44;background:#8b70ff12;color:#c8bbff;padding:8px 13px;border-radius:99px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.spark{color:#a994ff}.hero h1{font:800 clamp(42px,7vw,76px)/1.04 Manrope;margin:24px auto 18px;letter-spacing:-.055em;max-width:850px}.grad{background:linear-gradient(100deg,#fff 12%,#b7a7ff 52%,#63dce7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:610px;margin:0 auto;color:#a3adbf;font-size:16px;line-height:1.7}.hero-actions{display:flex;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}.hero-actions .btn{padding:14px 20px}.proof{margin-top:22px;color:#788397;font-size:11px}
+    .workspace{display:grid;grid-template-columns:230px 1fr;gap:16px;margin:24px auto 86px;align-items:stretch}.sidebar,.mainpanel,.feature,.pricecard{background:linear-gradient(145deg,#151b2aee,#0f1420ee);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 55px #0003}.sidebar{padding:18px;height:fit-content}.side-label{color:#687488;font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin:8px 10px 12px}.toolnav{display:flex;align-items:center;gap:11px;width:100%;padding:12px 11px;border:0;border-radius:11px;color:#aab3c4;background:transparent;text-align:left;font-size:13px;margin:3px 0}.toolnav.active,.toolnav:hover{background:#8b70ff19;color:#e8e2ff}.toolnav.active{box-shadow:inset 2px 0 #9a83ff}.toolico{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#ffffff0b;font-size:13px}.side-bottom{border-top:1px solid var(--line);margin-top:18px;padding:16px 8px 2px;color:#818da1;font-size:11px;line-height:1.6}.mainpanel{padding:26px;min-height:470px}.paneltop{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.paneltop h2{font:700 23px Manrope;margin:0 0 7px}.paneltop p{margin:0;color:#929bad;font-size:13px}.tag{font-size:10px;border:1px solid #6be0ad44;color:#91e5ba;background:#6be0ad0d;padding:6px 9px;border-radius:99px;white-space:nowrap}
+    .formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:#aeb8c9;font-weight:600}.field input,.field textarea,.field select{width:100%;background:#090e18;border:1px solid #ffffff16;color:#eef1f8;border-radius:11px;padding:13px 14px;outline:none;font-size:13px}.field textarea{min-height:125px;resize:vertical;line-height:1.55}.field input:focus,.field textarea:focus,.field select:focus{border-color:#8b70ff99;box-shadow:0 0 0 3px #8b70ff18}.field select option{background:#111521}.generate-row{display:flex;align-items:center;gap:14px;margin-top:17px;flex-wrap:wrap}.hint{font-size:11px;color:#79869a}.result{display:none;margin-top:24px;border:1px solid #8b70ff44;background:#090e18;border-radius:14px;padding:18px}.result.show{display:block}.resulthead{display:flex;justify-content:space-between;align-items:center;color:#b9aaff;font-size:11px;margin-bottom:12px}.resulttext{white-space:pre-wrap;line-height:1.7;font-size:13px;color:#dce2ef}.copy{background:#ffffff0c;border:1px solid var(--line);color:#dce2ef;border-radius:8px;padding:7px 10px;font-size:11px}
+    .section{padding:44px 0 74px}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font:800 34px Manrope;margin:0 0 10px;letter-spacing:-.04em}.section-head p{color:#929bad;margin:0;font-size:14px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:23px}.feature-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#8b70ff20;color:#c6baff;font-size:18px}.feature h3{font:700 16px Manrope;margin:17px 0 8px}.feature p{font-size:12px;line-height:1.7;color:#929bad;margin:0}
+    .pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:auto}.pricecard{padding:25px;position:relative}.pricecard.hot{border-color:#9b83ff77;box-shadow:0 12px 50px #785cff19}.popular{position:absolute;right:18px;top:18px;color:#c8bbff;background:#8b70ff1e;border:1px solid #8b70ff44;border-radius:99px;padding:6px 9px;font-size:9px}.plan{font-size:12px;color:#a8b1c1}.price{font:800 34px Manrope;margin:12px 0 5px}.price small{font:500 12px 'DM Sans';color:#929bad}.price-desc{color:#929bad;font-size:12px;min-height:35px}.checks{list-style:none;padding:0;margin:22px 0;color:#c8d0df;font-size:12px;line-height:2.2}.checks li:before{content:'✓';color:#72dfb1;margin-right:9px}.pricecard .btn{width:100%}
+    .faq{max-width:760px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:17px 2px}.faq summary{cursor:pointer;list-style:none;font-size:13px;font-weight:600}.faq summary:after{content:'+';float:right;color:#a994ff;font-size:18px}.faq details[open] summary:after{content:'−'}.faq p{color:#929bad;font-size:12px;line-height:1.7;max-width:680px}
+    footer{border-top:1px solid var(--line);padding:27px 0;color:#788397;font-size:11px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#1c2435;border:1px solid #ffffff22;padding:12px 17px;border-radius:12px;color:#eef1f8;font-size:12px;transition:.25s;z-index:30}.toast.on{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:760px){.links{display:none}.hero{padding:60px 0 30px}.workspace{grid-template-columns:1fr;margin-top:15px}.sidebar{display:flex;overflow:auto;gap:4px;padding:10px}.side-label,.side-bottom{display:none}.toolnav{white-space:nowrap;width:auto;padding:9px}.mainpanel{padding:19px}.features{grid-template-columns:1fr}.pricing{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.paneltop{flex-direction:column}.hero p{font-size:14px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#" style="text-decoration:none;color:inherit"><span class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8 14.7 9.3 21.2 12l-6.5 2.7L12 21.2l-2.7-6.5L2.8 12l6.5-2.7L12 2.8Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg></span> NEUROVA</a>
+  <nav class="links"><a href="#workspace">Инструменты</a><a href="#benefits">Возможности</a><a href="#pricing">Тарифы</a><a href="#faq">FAQ</a></nav>
+  <div class="navright"><span class="status">● Сервис онлайн</span><button class="btn ghost" onclick="document.querySelector('#workspace').scrollIntoView()">Открыть студию</button></div>
+</div></header>
+<main>
+<section class="hero wrap">
+  <div class="eyebrow"><span class="spark">✦</span> AI WORKSPACE · ВАШ УМНЫЙ ПОМОЩНИК</div>
+  <h1>Идеи превращаются<br>в <span class="grad">результат.</span></h1>
+  <p>Один AI-пространство для текстов, идей и продуктивности. Создавайте быстрее, думайте шире и освобождайте время для важного.</p>
+  <div class="hero-actions"><button class="btn primary" onclick="document.querySelector('#workspace').scrollIntoView({behavior:'smooth'})">Попробовать бесплатно ↗</button><a class="btn ghost" href="#benefits" style="text-decoration:none">Изучить возможности</a></div>
+  <div class="proof">Без сложной настройки · Работает в браузере · Начните бесплатно</div>
+</section>
+<section class="wrap" id="workspace">
+ <div class="workspace">
+  <aside class="sidebar">
+   <div class="side-label">Рабочее пространство</div>
+   <button class="toolnav active" data-tool="text"><span class="toolico">✎</span> AI-копирайтер</button>
+   <button class="toolnav" data-tool="ideas"><span class="toolico">✧</span> Генератор идей</button>
+   <button class="toolnav" data-tool="social"><span class="toolico">◎</span> Пост для соцсетей</button>
+   <button class="toolnav" data-tool="plan"><span class="toolico">▦</span> Планировщик</button>
+   <div class="side-bottom">NEUROVA STUDIO<br>Ваши идеи. Новый уровень.</div>
+  </aside>
+  <div class="mainpanel">
+   <div class="paneltop"><div><h2 id="toolTitle">AI-копирайтер</h2><p id="toolDesc">Создавайте убедительные тексты для любых задач.</p></div><span class="tag">✦ Бесплатный доступ</span></div>
+   <div class="formgrid">
+    <div class="field full"><label for="prompt">О чём должен быть результат?</label><textarea id="prompt" placeholder="Например: Напиши продающее описание для онлайн-магазина кроссовок..."></textarea></div>
+    <div class="field"><label for="tone">Стиль ответа</label><select id="tone"><option>Профессиональный</option><option>Дружелюбный</option><option>Убедительный</option><option>Креативный</option><option>Краткий и понятный</option></select></div>
+    <div class="field"><label for="length">Объём</label><select id="length"><option>Средний</option><option>Короткий</option><option>Подробный</option></select></div>
+   </div>
+   <div class="generate-row"><button class="btn primary" id="generate">✦ Сгенерировать</button><span class="hint">Обычно занимает несколько секунд</span></div>
+   <div class="result" id="result"><div class="resulthead"><span>✦ ВАШ РЕЗУЛЬТАТ</span><button class="copy" id="copy">Копировать</button></div><div class="resulttext" id="resultText"></div></div>
+  </div>
+ </div>
+</section>
+<section class="section wrap" id="benefits">
+ <div class="section-head"><h2>Больше возможностей. <span class="grad">Меньше рутины.</span></h2><p>Инструменты, которые помогают доводить идеи до результата.</p></div>
+ <div class="features">
+  <article class="feature"><div class="feature-icon">✎</div><h3>Тексты за минуты</h3><p>Черновики писем, описания продуктов, статьи и деловые тексты — быстрее и проще.</p></article>
+  <article class="feature"><div class="feature-icon">✧</div><h3>Идеи без границ</h3><p>Находите новые направления, названия, концепции и решения для своих проектов.</p></article>
+  <article class="feature"><div class="feature-icon">◈</div><h3>Продуктивность</h3><p>Структурируйте задачи, создавайте планы и превращайте большие цели в понятные шаги.</p></article>
+ </div>
+</section>
+<section class="section wrap" id="pricing">
+ <div class="section-head"><h2>Простые тарифы</h2><p>Начните бесплатно и переходите на расширенный доступ по мере роста.</p></div>
+ <div class="pricing">
+  <div class="pricecard"><div class="plan">STARTER</div><div class="price">0 ₸ <small>/ навсегда</small></div><div class="price-desc">Чтобы познакомиться с возможностями платформы.</div><ul class="checks"><li>Базовые AI-инструменты</li><li>Ограниченное количество запросов</li><li>Копирование результатов</li></ul><button class="btn ghost" onclick="document.querySelector('#workspace').scrollIntoView()">Начать бесплатно</button></div>
+  <div class="pricecard hot"><span class="popular">ДЛЯ АКТИВНЫХ</span><div class="plan">PRO</div><div class="price">2 990 ₸ <small>/ месяц</small></div><div class="price-desc">Больше возможностей для ежедневной работы.</div><ul class="checks"><li>Расширенный лимит запросов</li><li>Приоритетная генерация</li><li>Все инструменты платформы</li><li>История результатов</li></ul><button class="btn primary" onclick="notify('Оплата пока не подключена. Настройте платёжный сервис перед запуском.')">Выбрать PRO</button></div>
+ </div>
+ <p style="text-align:center;color:#687488;font-size:10px;margin-top:15px">Цены демонстрационные. Приём платежей подключается отдельно.</p>
+</section>
+<section class="section wrap" id="faq">
+ <div class="section-head"><h2>Частые вопросы</h2><p>Коротко о том, как работает NEUROVA.</p></div>
+ <div class="faq">
+  <details><summary>Можно ли пользоваться бесплатно?</summary><p>Да. На стартовом тарифе можно попробовать базовые инструменты. Лимиты и условия нужно настроить на сервере.</p></details>
+  <details><summary>Это настоящий искусственный интеллект?</summary><p>После добавления API-ключа в серверную конфигурацию генерация будет выполняться через подключённую AI-модель. Без ключа сайт показывает демонстрационный режим.</p></details>
+  <details><summary>Как начать зарабатывать на платформе?</summary><p>Нужно подключить оплату, настроить учёт пользователей и лимитов, опубликовать условия подписки и привлекать клиентов. До запуска проверьте спрос на продукт.</p></details>
+  <details><summary>Сохраняются ли мои запросы?</summary><p>В этой стартовой версии запросы не сохраняются на сервере. Для истории потребуется база данных и авторизация.</p></details>
+ </div>
+</section>
+</main>
+<footer><div class="wrap foot"><span>© 2026 NEUROVA. Все права защищены.</span><span>Создано для идей, которые двигают вперёд.</span></div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const tools = {
+ text:{title:'AI-копирайтер',desc:'Создавайте убедительные тексты для любых задач.',placeholder:'Например: Напиши продающее описание для онлайн-магазина кроссовок...',task:'Напиши качественный текст по запросу пользователя.'},
+ ideas:{title:'Генератор идей',desc:'Находите свежие идеи для бизнеса, контента и проектов.',placeholder:'Например: 10 идей онлайн-бизнеса с небольшим бюджетом...',task:'Предложи оригинальные идеи по запросу пользователя. Для каждой добавь короткое объяснение.'},
+ social:{title:'Пост для соцсетей',desc:'Создавайте вовлекающие публикации для вашей аудитории.',placeholder:'Например: Пост в Instagram о запуске новой кофейни...',task:'Создай готовый пост для социальных сетей с цепляющим началом и призывом к действию.'},
+ plan:{title:'Планировщик',desc:'Разбивайте цели на конкретные и выполнимые шаги.',placeholder:'Например: План запуска интернет-магазина за 30 дней...',task:'Составь реалистичный пошаговый план по запросу пользователя.'}
+};
+let current='text';
+document.querySelectorAll('.toolnav').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.toolnav').forEach(x=>x.classList.remove('active'));b.classList.add('active');current=b.dataset.tool;
+ document.querySelector('#toolTitle').textContent=tools[current].title;document.querySelector('#toolDesc').textContent=tools[current].desc;document.querySelector('#prompt').placeholder=tools[current].placeholder;document.querySelector('#result').classList.remove('show');
+}));
+function notify(msg){const t=document.querySelector('#toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
+document.querySelector('#generate').addEventListener('click',async()=>{
+ const prompt=document.querySelector('#prompt').value.trim();if(!prompt){notify('Сначала напишите, что нужно создать.');return}
+ const btn=document.querySelector('#generate');btn.disabled=true;btn.textContent='⟳ Создаём...';
+ try{
+  const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,tool:tools[current].task,tone:document.querySelector('#tone').value,length:document.querySelector('#length').value})});
+  const data=await r.json();if(!r.ok)throw new Error(data.error||'Не удалось выполнить запрос');
+  document.querySelector('#resultText').textContent=data.text;document.querySelector('#result').classList.add('show');
+  if(data.demo)notify('Демонстрационный режим: добавьте API-ключ для настоящей AI-генерации.');
+ }catch(e){notify(e.message)}
+ finally{btn.disabled=false;btn.textContent='✦ Сгенерировать'}
+});
+document.querySelector('#copy').addEventListener('click',async()=>{await navigator.clipboard.writeText(document.querySelector('#resultText').textContent);notify('Результат скопирован!')});
+</script>
+</body>
+</html>
